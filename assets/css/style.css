@@ -762,6 +762,12 @@ section {
 # Courses
 --------------------------------------------------------------*/
 .courses .course-item {
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 1px solid #eef0ef;
+}
+.courses .course-item {
   border-radius: 5px;
   border: 1px solid #eef0ef;
 }
