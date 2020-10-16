@@ -114,6 +114,14 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  .headTitle {
+    font-size: medium;
+	font-style:bold;
+  }
+}
+
+
 #header {
   background: #fff;
   transition: all 0.5s;
