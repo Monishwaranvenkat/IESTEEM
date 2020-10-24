@@ -890,6 +890,10 @@ section {
   font-size: 18px;
   margin: 0 2px;
 }
+.trainer{
+  bottom: 0;
+  position: sticky;
+}
 
 /*--------------------------------------------------------------
 # Testimonials
