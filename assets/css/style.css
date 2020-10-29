@@ -319,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
-  top: 17px;
+  top: 2em;
   right: 15px;
   z-index: 9998;
   border: 0;
@@ -556,7 +556,7 @@ section {
 }
 
 .breadcrumbs {
-  margin-top: 115px;
+  margin-top: 122px;
   text-align: center;
   background: #5fcf80;
   padding: 10px 0;
@@ -565,7 +565,7 @@ section {
 
 @media (max-width: 992px) {
   .breadcrumbs {
-    margin-top: 322px;
+    margin-top: 80px;
   }
 }
 
@@ -761,6 +761,13 @@ section {
 /*--------------------------------------------------------------
 # Courses
 --------------------------------------------------------------*/
+.courses .course-item {
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  border: 1px solid #eef0ef;
+}
+
 .courses .course-item {
   box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -1604,5 +1611,94 @@ section {
   background: #3ac162;
   color: #fff;
   text-decoration: none;
+}
+
+/* Media Query for Header*/
+/* Media Query for Header*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 370px) {
+  #title-txt {
+    font-size: 8px;
+    margin-top: 1.5em;
+  }
+  #icon{
+    padding: none;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media only screen and (min-width: 370px) {
+  #title-txt {
+    font-size: 10px;
+    font-weight: 10px;
+    margin-top: 1em;
+  }
+  #icon{
+    padding: none;
+  width: 24px;
+  height: 24px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  #title-txt {
+    font-size: 12px;
+    margin-top: 1em;
+  }
+  #icon{
+    padding: none;
+  width: 16px;
+  height: 15px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #title-txt {
+    font-size: 18px;
+    margin-top: .5em;
+  }
+  #icon{
+  width: 30px;
+  height: 30px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #title-txt {
+    font-size: 20px;
+    margin-top: .2em;
+  }
+  #icon{
+  width: 40px;
+  height: 50px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #title-txt {
+    font-size: 30px;
+    margin-top: .2em;
+  }
+  #icon{
+  width: 50px;
+  height: 50px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #title-txt {
+    font-size: 40px;
+    margin-top: .2em;
+  }
+  #icon{
+  width: 50px;
+  height: 50px;
+  }
 }
 
