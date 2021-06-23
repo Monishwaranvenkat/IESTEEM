@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone</title>
+    <link rel="stylesheet" href="assets/css/intlTelInput.css">
+    <style>
+        .hide{
+            display: none;
+        }
+        #valid-msg{
+            color: green;
+        }
+        #error-msg{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="tel" id="phone">
+        <span id="valid-msg" class="hide">✓ Valid</span>
+        <span id="error-msg" class="hide"></span>
+    </div>
+    <script src="assets/js/intlTelInput.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var input = document.querySelector("#phone"),
+            errorMsg = document.querySelector("#error-msg"),
+            validMsg = document.querySelector("#valid-msg");
+
+        // Error messages based on the code returned from getValidationError
+        var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+		
+		
+		
+        var intl = window.intlTelInput(input, {
+            initialCountry: "auto",
+            geoIpLookup: function (success, failure) {
+                $.get("https://ipinfo.io", function () { }, "jsonp").always(function (resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    success(countryCode);
+                });
+            },
+            utilsScript: "assets/js/utils.js"
+        });
+		
+		
+        var reset = function() {
+            input.classList.remove("error");
+            errorMsg.innerHTML = "";
+            errorMsg.classList.add("hide");
+            validMsg.classList.add("hide");
+        };
+        
+        // Validate on blur event
+        input.addEventListener('blur', function() {
+            reset();
+            if(input.value.trim()){
+                if(!intl.isValidNumber()){
+                    validMsg.classList.remove("hide");
+                }else{
+                    input.classList.add("error");
+                    var errorCode = intl.getValidationError();
+                    errorMsg.innerHTML = errorMap[errorCode];
+                    errorMsg.classList.remove("hide");
+                }
+            }
+        });
+        
+        // Reset on keyup/change event
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    </script>
+
+
+   
+</body>
+
+</html>
